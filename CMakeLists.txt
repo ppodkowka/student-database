@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.14)
 project(student-database)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(${PROJECT_NAME} src/main.cpp)
+add_executable(${PROJECT_NAME} "src/main.cpp" "src/student.cpp" "src/database.cpp")
 
 include(FetchContent)
 FetchContent_Declare(
@@ -17,7 +17,7 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
-add_executable(${PROJECT_NAME}-ut src/tests.cpp)
+add_executable(${PROJECT_NAME}-ut "src/tests.cpp" "src/student.cpp" "src/database.cpp")
 
 target_link_libraries(${PROJECT_NAME}-ut GTest::gtest_main)
 
