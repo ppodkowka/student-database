@@ -10,15 +10,29 @@ bool Database::add(const Student& student) {
 	}
 	else 
 		return false;
-
 };
 
 void Database::show() {
+	int index = 1;
 	for (auto student : students_) {
-		std::cout << student.StudentData() << std::endl;
+		std::cout <<index << ": " << student.StudentData() << std::endl;
+		index++;
 	}
 }
 
 std::string Database::show(Student& student) {
 	return student.StudentData();
+}
+
+bool Database::erase(int index) {
+    auto it = std::find_if(students_.begin(), students_.end(),
+        [index](const Student& student) {
+            return student.getIndex() == index;
+        });
+
+    if (it != students_.end()) {
+        students_.erase(it);
+        return true;
+    }
+    return false;
 }

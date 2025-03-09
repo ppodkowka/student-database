@@ -22,7 +22,7 @@ public:
 
 	auto operator<=>(const Student& other) const = default;
 
-	// tak trzeba w cpp 17:
+	// in cpp 17:
 	//bool operator==(const Student& other) const {
 	//	return name_ == other.name_ &&
 	//		surname_ == other.surname_ &&
