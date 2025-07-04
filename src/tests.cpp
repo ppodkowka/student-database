@@ -13,7 +13,7 @@ protected:
 											Gender::Male);
 
 		student2 = std::make_unique<Student>("Zenon",
-											 "Wazon",
+											 "Nowak",
 											 "ul. Dluga 21",
 											 301037,
 											 "9204545081",
@@ -49,7 +49,7 @@ TEST_F(DatabaseTest, CanShowDatabase) {
 TEST_F(DatabaseTest, CanSearchBySurnameOrPesel) {
 	EXPECT_TRUE(database->add(*student));
 	EXPECT_TRUE(database->add(*student2));
-	EXPECT_EQ(database->search(&Student::getSurname, "Wazon"), *student2);
+	EXPECT_EQ(database->search(&Student::getSurname, "Nowak"), *student2);
 	EXPECT_NE(database->search(&Student::getSurname,"Kowalski"), *student2);
 	EXPECT_EQ(database->search(&Student::getPesel,"930415081"), *student);
 }

@@ -17,8 +17,7 @@ private:
 	Gender gender_;
 
 public:
-	Student(const std::string& name, std::string surname, std::string address, int index, std::string pesel,
-		Gender gender);
+	Student(const std::string& name, std::string surname, std::string address, int index, std::string pesel, Gender gender);
 
 	auto operator<=>(const Student& other) const = default;
 
